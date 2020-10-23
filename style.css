@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+}
+
+#body-container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: lightblue;
+}
+
+/* ! -- HEADER -- * */
+
+header {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 75px;
+  align-items: end;
+}
+
+#site-title {
+  grid-column: 1 / span 2;
+  margin: 0;
+  padding: 0;
+  grid-row: 1;
+}
+
+#main-nav {
+  grid-column: 5 / span 2;
+}
+
+#nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+
+.nav-item > a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* !-- END OF HEADER --  **/
+
+/* ! -- INFORMATION SECTION -- */
+
+h2 {
+  text-align: center;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#input-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#new-todo-input {
+  text-align: center;
+}
+
+#new-todo-input > button {
+  margin: 10px 0;
+  width: 45%;
+  font-size: 12px;
+}

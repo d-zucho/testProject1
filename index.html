@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1</title>
+</head>
+<body>
+  <div id="body-container">
+
+    <!-- ? HEADER  ? --> 
+    <div id="header-container">
+
+      <header>
+        <h1 id="site-title">Get It Done</h1>  
+        <nav id="main-nav">
+          <ul id="nav-list">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+            <li class="nav-item"><a href="#">Login</a></li>
+            <li class="nav-item"><a href="#">Sign Up</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+    
+    <!-- ? INFORMATION SECTION ?-->
+
+    <section id="add-and-filter">
+      <h2 id="todos-left">WILL BE ADDED WITH JAVASCRIPT</h2>
+      
+      <div id="input-fields">
+        <form id="input-form">
+          <div id="new-todo-input">
+            <label for="new-input" id="new-label">Add New Todo: </label>
+            <input type="text" name="newInput" id="new-input" placeholder="Add text here"><br>
+            <button type="submit">Enter</button>
+          </div>
+
+          <div id="filter-input">
+            <label for="filterInput" id="filter-label">Filter : </label>
+            <input type="text" id="filterInput" >
+          </div>
+        </form>
+      </div>
+        
+      </form>
+    </section>
+
+    <!-- ? -- TODOS -- -->
+    <div id="todos"></div>
+
+
+  </div>  <!--body div container end-->
+  
+  <script src="functions.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
