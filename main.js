@@ -27,18 +27,19 @@ renderTodos(todos, filters);
 document.querySelector('#input-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  // ? push new todo to todo list
-  // const todoTextInput = e.target.elements.newInput.value;
-  // todos.push({
-  //   text: todoTextInput,
-  //   completed: false,
-  // });
+
   addTodo(e);
 
   saveTodos(todos);
+
   document.querySelector('#todos').innerHTML = '';
   renderTodos(todos, filters);
   e.target.elements.newInput.value = '';
 
   console.log(todos);
 });
+
+// *** DELETE INDIVIDUAL TODO *** //
+// document.querySelector('deleteButton').addEventListener('click', function (e) {
+
+// })

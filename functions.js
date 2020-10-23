@@ -1,3 +1,4 @@
+
 function checkStorage() {
   if (localStorage.getItem('todos') !== null) {
     todos = JSON.parse(todosJSON);
@@ -11,6 +12,7 @@ function saveTodos(todos) {
 function addTodo(e) {
   const todoTextInput = e.target.elements.newInput.value;
   todos.push({
+    // id: uuidv4(),
     text: todoTextInput,
     completed: false,
   });
@@ -29,6 +31,7 @@ function createTodos(filteredTodos) {
     checkbox.setAttribute('type', 'checkbox');
     todoText.textContent = ` ${todo.text} `;
     deleteButton.textContent = ' x ';
+    deleteButton.setAttribute('id', 'deleteButton')
 
     //*** Append line together */
     individualTodoDiv.appendChild(checkbox);
