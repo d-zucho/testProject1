@@ -14,7 +14,7 @@ function renderTodos(todos, filters) {
     return !todo.completed;
   });
 
-  let filteredTodos = incompleteTodos.filter(function (todo) {
+  let filteredTodos = todos.filter(function (todo) {
     return todo.text.toLowerCase().includes(filters.text.toLowerCase());
   });
 
@@ -43,5 +43,7 @@ document.querySelector('#filterInput').addEventListener('input', function (e) {
   document.querySelector('#todos').innerHTML = '';
   renderTodos(todos, filters);
 });
+
+//*** TOGGLE CHECKBOX FOR COMPLETED *** */
 
 renderTodos(todos, filters);

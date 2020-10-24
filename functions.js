@@ -1,4 +1,3 @@
-
 function checkStorage() {
   if (localStorage.getItem('todos') !== null) {
     todos = JSON.parse(todosJSON);
@@ -18,6 +17,17 @@ function addTodo(e) {
   });
 }
 
+//*** Toggle Todo Function ** */
+function toggleTodo(id) {
+  const todo = todos.find(function (todo) {
+    return todo.id === id;
+  });
+
+  if (todo !== undefined) {
+    todo.completed = !todo.completed;
+  }
+}
+
 function createTodos(filteredTodos) {
   filteredTodos.forEach(function (todo) {
     //*** Create individual todo lines */
@@ -29,9 +39,11 @@ function createTodos(filteredTodos) {
     //*** Create element attributes */
     todoText.setAttribute('id', 'todoSpan');
     checkbox.setAttribute('type', 'checkbox');
+    checkbox.checked = todo.completed;
+    checkbox.setAttribute('id', 'toggleCompleted');
     todoText.textContent = ` ${todo.text} `;
     deleteButton.textContent = ' x ';
-    deleteButton.setAttribute('id', 'deleteButton')
+    deleteButton.setAttribute('id', 'deleteButton');
 
     //*** Append line together */
     individualTodoDiv.appendChild(checkbox);
@@ -40,22 +52,31 @@ function createTodos(filteredTodos) {
 
     document.getElementById('todos').appendChild(individualTodoDiv);
 
+    //*** CHECKBOX EVENT LISTENER *** */
+    checkbox.addEventListener('change', function (e) {
+      toggleTodo(todo.id);
+      saveTodos(todos);
+      document.querySelector('#todos').innerHTML = '';
+      renderTodos(todos, filters);
+    });
+
+    //**DELETE INDIVIDUAL TODO */
     deleteButton.addEventListener('click', function (e) {
-      deleteTodo(todo.id)
-      saveTodos(todos)
-      document.querySelector('#todos').innerHTML = ''
-      renderTodos(todos, filters)
-    })
+      deleteTodo(todo.id);
+      saveTodos(todos);
+      document.querySelector('#todos').innerHTML = '';
+      renderTodos(todos, filters);
+    });
   });
 }
 
 // *** DELETE INDIVIDUAL TODO *** //
 const deleteTodo = function (id) {
   let index = todos.findIndex(function (todo) {
-    return todo.id === id
-  })
+    return todo.id === id;
+  });
 
   if (index > -1) {
-    todos.splice(index, 1)
+    todos.splice(index, 1);
   }
-}
+};
