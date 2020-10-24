@@ -21,12 +21,9 @@ function renderTodos(todos, filters) {
   createTodos(filteredTodos); // form functions.js
 }
 
-renderTodos(todos, filters);
-
 //*** ADD NEW TODO IN FORM */ */
 document.querySelector('#input-form').addEventListener('submit', function (e) {
   e.preventDefault();
-
 
   addTodo(e);
 
@@ -39,4 +36,12 @@ document.querySelector('#input-form').addEventListener('submit', function (e) {
   console.log(todos);
 });
 
+//*** ADD FILTER INPUT *** */
+document.querySelector('#filterInput').addEventListener('input', function (e) {
+  console.log(e.target.value);
+  filters.text = e.target.value;
+  document.querySelector('#todos').innerHTML = '';
+  renderTodos(todos, filters);
+});
 
+renderTodos(todos, filters);
