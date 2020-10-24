@@ -12,7 +12,7 @@ function saveTodos(todos) {
 function addTodo(e) {
   const todoTextInput = e.target.elements.newInput.value;
   todos.push({
-    // id: uuidv4(),
+    id: uuidv4(),
     text: todoTextInput,
     completed: false,
   });
@@ -39,5 +39,23 @@ function createTodos(filteredTodos) {
     individualTodoDiv.appendChild(deleteButton);
 
     document.getElementById('todos').appendChild(individualTodoDiv);
+
+    deleteButton.addEventListener('click', function (e) {
+      deleteTodo(todo.id)
+      saveTodos(todos)
+      document.querySelector('#todos').innerHTML = ''
+      renderTodos(todos, filters)
+    })
   });
+}
+
+// *** DELETE INDIVIDUAL TODO *** //
+const deleteTodo = function (id) {
+  let index = todos.findIndex(function (todo) {
+    return todo.id === id
+  })
+
+  if (index > -1) {
+    todos.splice(index, 1)
+  }
 }

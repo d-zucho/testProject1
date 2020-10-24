@@ -39,7 +39,4 @@ document.querySelector('#input-form').addEventListener('submit', function (e) {
   console.log(todos);
 });
 
-// *** DELETE INDIVIDUAL TODO *** //
-// document.querySelector('deleteButton').addEventListener('click', function (e) {
 
-// })
