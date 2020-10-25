@@ -3,11 +3,12 @@ function checkStorage() {
     todos = JSON.parse(todosJSON);
   }
 }
-
+//*** Save todos ** */
 function saveTodos(todos) {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+//*** Add a todo **/
 function addTodo(e) {
   const todoTextInput = e.target.elements.newInput.value;
   todos.push({
@@ -28,6 +29,7 @@ function toggleTodo(id) {
   }
 }
 
+//*** Create all elements of the individual todo statement ** */
 function createTodos(filteredTodos) {
   filteredTodos.forEach(function (todo) {
     //*** Create individual todo lines */
@@ -61,7 +63,7 @@ function createTodos(filteredTodos) {
       renderTodos(todos, filters);
     });
 
-    //**DELETE INDIVIDUAL TODO */
+    //**Delete todo event listener*/
     deleteButton.addEventListener('click', function (e) {
       deleteTodo(todo.id);
       saveTodos(todos);
@@ -71,7 +73,7 @@ function createTodos(filteredTodos) {
   });
 }
 
-// *** DELETE INDIVIDUAL TODO *** //
+// *** Delete todo *** //
 function deleteTodo(id) {
   let index = todos.findIndex(function (todo) {
     return todo.id === id;
@@ -82,6 +84,7 @@ function deleteTodo(id) {
   }
 }
 
+//*** Sort and rearange todos by completed */
 function sortByCompleted(todos) {
   todos.sort(function (a, b) {
     if (!a.completed && b.completed) {
