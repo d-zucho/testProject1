@@ -15,6 +15,7 @@ header {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 75px;
   align-items: end;
+  padding: 0 1rem;
 }
 
 #site-title {
@@ -47,7 +48,7 @@ header {
 h2 {
   text-align: center;
   padding: 25px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #input-fields {
