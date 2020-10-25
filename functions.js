@@ -57,6 +57,7 @@ function createTodos(filteredTodos) {
       toggleTodo(todo.id);
       saveTodos(todos);
       document.querySelector('#todos').innerHTML = '';
+      sortByCompleted(todos);
       renderTodos(todos, filters);
     });
 
@@ -71,7 +72,7 @@ function createTodos(filteredTodos) {
 }
 
 // *** DELETE INDIVIDUAL TODO *** //
-const deleteTodo = function (id) {
+function deleteTodo(id) {
   let index = todos.findIndex(function (todo) {
     return todo.id === id;
   });
@@ -79,4 +80,16 @@ const deleteTodo = function (id) {
   if (index > -1) {
     todos.splice(index, 1);
   }
-};
+}
+
+function sortByCompleted(todos) {
+  todos.sort(function (a, b) {
+    if (!a.completed && b.completed) {
+      return -1;
+    } else if (!b.completed && a.completed) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+}
