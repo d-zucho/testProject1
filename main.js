@@ -20,11 +20,7 @@ function renderTodos(todos, filters) {
 
   createTodos(filteredTodos); // form functions.js
 
-  let summary = document.createElement('h2');
-  summary.setAttribute('id', 'todos-left');
-  summary.textContent = `You have ${incompleteTodos.length} Todo's left!`;
-  document.querySelector('#summary').innerHTML = '';
-  document.querySelector('#summary').appendChild(summary);
+
 }
 
 //*** ADD NEW TODO IN FORM */ */
