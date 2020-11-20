@@ -39,6 +39,11 @@ document.querySelector('#input-form').addEventListener('submit', function (e) {
 });
 
 //*** ADD FILTER INPUT *** */
+document.querySelector('#filterInput').addEventListener('input', function (e) {
+  let filterInput = e.target.value
+  // console.log(filterInput)
+  filters.text = filterInput
+})
 
 
 //*** TOGGLE CHECKBOX FOR COMPLETED *** */

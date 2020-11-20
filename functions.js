@@ -1,7 +1,7 @@
 // TODO - add filter input
 // TODO - toggle todo function
 // TODO - function to sort todos by, completed, date created, and alphabetical
-// 
+
 
 
 function checkStorage() {
@@ -54,7 +54,10 @@ function createTodos(filteredTodos) {
     summary.setAttribute('id', 'summary-statement')
     summary.textContent = `You Have ${filteredTodos.length} ToDos Left!`
 
-    document.getElementById('todos').appendChild(individualTodoDiv);
+    /*** Append Combined Elements To DOM */
+    document.querySelector('#summary').innerHTML = ''
+    document.querySelector('#summary').appendChild(summary)
+    document.querySelector('#todos').appendChild(individualTodoDiv);
 
 
 
