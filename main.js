@@ -39,12 +39,7 @@ document.querySelector('#input-form').addEventListener('submit', function (e) {
 });
 
 //*** ADD FILTER INPUT *** */
-document.querySelector('#filterInput').addEventListener('input', function (e) {
-  console.log(e.target.value);
-  filters.text = e.target.value;
-  document.querySelector('#todos').innerHTML = '';
-  renderTodos(todos, filters);
-});
+
 
 //*** TOGGLE CHECKBOX FOR COMPLETED *** */
 

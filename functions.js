@@ -1,3 +1,9 @@
+// TODO - add filter input
+// TODO - toggle todo function
+// TODO - function to sort todos by, completed, date created, and alphabetical
+// 
+
+
 function checkStorage() {
   if (localStorage.getItem('todos') !== null) {
     todos = JSON.parse(todosJSON);
@@ -18,16 +24,7 @@ function addTodo(e) {
   });
 }
 
-//*** Toggle Todo Function ** */
-function toggleTodo(id) {
-  const todo = todos.find(function (todo) {
-    return todo.id === id;
-  });
 
-  if (todo !== undefined) {
-    todo.completed = !todo.completed;
-  }
-}
 
 //*** Create all elements of the individual todo statement ** */
 function createTodos(filteredTodos) {
@@ -52,16 +49,14 @@ function createTodos(filteredTodos) {
     individualTodoDiv.appendChild(todoText);
     individualTodoDiv.appendChild(deleteButton);
 
+    //*** Create Summary Statement Element */
+    const summary = document.createElement('h2')
+    summary.setAttribute('id', 'summary-statement')
+    summary.textContent = `You Have ${filteredTodos.length} ToDos Left!`
+
     document.getElementById('todos').appendChild(individualTodoDiv);
 
-    //*** CHECKBOX EVENT LISTENER *** */
-    checkbox.addEventListener('change', function (e) {
-      toggleTodo(todo.id);
-      saveTodos(todos);
-      document.querySelector('#todos').innerHTML = '';
-      sortByCompleted(todos);
-      renderTodos(todos, filters);
-    });
+
 
     //**Delete todo event listener*/
     deleteButton.addEventListener('click', function (e) {
@@ -82,17 +77,4 @@ function deleteTodo(id) {
   if (index > -1) {
     todos.splice(index, 1);
   }
-}
-
-//*** Sort and rearange todos by completed */
-function sortByCompleted(todos) {
-  todos.sort(function (a, b) {
-    if (!a.completed && b.completed) {
-      return -1;
-    } else if (!b.completed && a.completed) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
 }
