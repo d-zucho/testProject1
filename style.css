@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  min-width: 840px;
 }
 
 #body-container {
@@ -9,6 +10,11 @@ body {
 }
 
 /* ! -- HEADER -- * */
+
+#header-container {
+  width: 95%;
+  margin: auto;
+}
 
 header {
   display: grid;
@@ -64,4 +70,8 @@ h2 {
   margin: 10px 0;
   width: 45%;
   font-size: 12px;
+}
+
+#sort-by {
+  height: 1.3rem;
 }

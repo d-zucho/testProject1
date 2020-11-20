@@ -39,4 +39,8 @@ document.querySelector('#input-form').addEventListener('submit', function (e) {
   console.log(todos);
 });
 
-
+//*** Add filter input ***/
+document.querySelector('#filterInput').addEventListener('input', function (e) {
+  const filterText = e.target.value
+  console.log(filterText)
+})

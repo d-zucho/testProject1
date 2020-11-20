@@ -20,7 +20,7 @@ function addTodo(e) {
 
 function createTodos(filteredTodos) {
   filteredTodos.forEach(function (todo) {
-    //*** Create individual todo lines */
+    //*** Create individual todo line elements */
     const individualTodoDiv = document.createElement('div');
     const checkbox = document.createElement('input');
     const todoText = document.createElement('span');
@@ -50,7 +50,7 @@ function createTodos(filteredTodos) {
 }
 
 // *** DELETE INDIVIDUAL TODO *** //
-const deleteTodo = function (id) {
+function deleteTodo (id) {
   let index = todos.findIndex(function (todo) {
     return todo.id === id
   })
