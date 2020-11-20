@@ -1,12 +1,19 @@
 body {
   margin: 0;
+<<<<<<< HEAD
   min-width: 840px;
+=======
+  background: lightgray;
+>>>>>>> 0d9ba839e56514e1a29998ce37e6ca1494634c6d
 }
 
 #body-container {
   width: 90%;
-  margin: 0 auto;
+  margin: 5% auto;
   background-color: lightblue;
+  min-width: 810px;
+  max-width: 1000px;
+  height: 90%;
 }
 
 /* ! -- HEADER -- * */
@@ -21,6 +28,7 @@ header {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 75px;
   align-items: end;
+  padding: 0 1rem;
 }
 
 #site-title {
@@ -53,10 +61,10 @@ header {
 h2 {
   text-align: center;
   padding: 25px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#input-form {
+#input-fields {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
