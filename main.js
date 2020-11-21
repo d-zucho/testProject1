@@ -17,7 +17,7 @@ function renderTodos(todos, filters) {
   let filteredTodos = todos.filter(function (todo) {
     return todo.text.toLowerCase().includes(filters.text.toLowerCase());
   });
-
+  document.querySelector('#todos').innerHTML = ''
   createTodos(filteredTodos); // form functions.js
 
 
@@ -43,9 +43,16 @@ document.querySelector('#filterInput').addEventListener('input', function (e) {
   // let filterInput = e.target.value
   // console.log(filterInput)
   filters.text = e.target.value
-  document.querySelector('#todos').innerHTML = ''
   renderTodos(todos, filters)
 })
 
+document.querySelector('#sort-by').addEventListener('change', function (e) {
+  const sortOption = e.target.value
+  console.log(sortOption)
+  sortTodos(todos, sortOption)
+  saveTodos(todos)
+  document.querySelector('#todos').innerHTML = ''
 
+  renderTodos(todos, filters)
+})
 renderTodos(todos, filters);

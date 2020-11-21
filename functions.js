@@ -1,5 +1,5 @@
 // DONE - TODO - add filter input-- DONE
-// TODO - toggle todo function
+// DONE - TODO - toggle todo function
 // TODO - function to sort todos by, completed, date created, and alphabetical
 
 
@@ -21,6 +21,7 @@ function addTodo(e) {
     id: uuidv4(),
     text: todoTextInput,
     completed: false,
+    dateCreated: Date()
   });
 }
 
@@ -36,7 +37,6 @@ function toggleTodo (id) {
     todo.completed = !todo.completed
   }
 }
-
 
 
 //*** Create all elements of the individual todo statement ** */
@@ -100,4 +100,21 @@ function deleteTodo(id) {
   if (index > -1) {
     todos.splice(index, 1);
   }
+}
+
+
+//*** Sort Todos by user parameter */
+function sortTodos(todos, sortParameter) {
+  todos.sort(function (a, b) {
+    if (sortParameter === 'incomplete') {
+      if (a.completed < b.completed) {
+        return -1
+      } else if (b.completed < a.completed) {
+        return 1
+      } else {
+        return 0
+      }
+
+  }
+  } )
 }
