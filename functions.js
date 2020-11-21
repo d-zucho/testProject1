@@ -1,4 +1,4 @@
-// TODO - add filter input
+// DONE - TODO - add filter input-- DONE
 // TODO - toggle todo function
 // TODO - function to sort todos by, completed, date created, and alphabetical
 
@@ -22,6 +22,19 @@ function addTodo(e) {
     text: todoTextInput,
     completed: false,
   });
+}
+
+/** Toggle Todo ***/
+function toggleTodo (id) {
+  let todo = todos.find(function (todo) {
+    return todo.id === id
+  })
+
+  // If a todo is found, meaning todo.find did not
+  // return undefined, toggle completed/incomplete
+  if (todo !== undefined) {
+    todo.completed = !todo.completed
+  }
 }
 
 
@@ -60,6 +73,13 @@ function createTodos(filteredTodos) {
     document.querySelector('#todos').appendChild(individualTodoDiv);
 
 
+    /**Toggle ToDo Completed / Incomlete ***/
+    checkbox.addEventListener('change', function (e) {
+      toggleTodo(todo.id)
+      saveTodos(todos)
+      document.querySelector('#todos').innerHTML = ''
+      renderTodos(todos, filters)
+    })
 
     //**Delete todo event listener*/
     deleteButton.addEventListener('click', function (e) {

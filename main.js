@@ -40,12 +40,12 @@ document.querySelector('#input-form').addEventListener('submit', function (e) {
 
 //*** ADD FILTER INPUT *** */
 document.querySelector('#filterInput').addEventListener('input', function (e) {
-  let filterInput = e.target.value
+  // let filterInput = e.target.value
   // console.log(filterInput)
-  filters.text = filterInput
+  filters.text = e.target.value
+  document.querySelector('#todos').innerHTML = ''
+  renderTodos(todos, filters)
 })
 
-
-//*** TOGGLE CHECKBOX FOR COMPLETED *** */
 
 renderTodos(todos, filters);
